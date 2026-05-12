@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создание аккаунта — FITNUTRITION</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo"><a href="index.html">FITNUTRITION</a></div>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="promotions.html">Акции</a>
+        <a href="blog.html">Блог</a>
+        <a href="about.html">О нас</a>
+        <a href="delivery.html">Доставка</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <div class="header-actions">
+        <form class="search-form" action="catalog.html" method="get">
+          <input type="search" name="q" placeholder="Поиск..." aria-label="Поиск" id="search-input">
+          <button type="submit">Найти</button>
+        </form>
+        <a href="cart.html" class="cart-link">Корзина <span id="cart-count" class="cart-count">0</span></a>
+        <a href="register.html" class="btn btn-primary btn-sm">Регистрация</a>
+        <a href="account.html" class="btn btn-ghost btn-sm">Войти</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="register-page">
+      <h1 class="page-title" style="text-align: center; margin-bottom: 0.5rem;">Создание аккаунта</h1>
+      <p class="page-lead">Заполните данные для создания личного кабинета и получения бонусов</p>
+
+      <div class="register-stepper" id="stepper-labels">
+        <div class="register-stepper__item is-active" data-step-label="1">Личные данные</div>
+        <div class="register-stepper__item" data-step-label="2">Контакты</div>
+        <div class="register-stepper__item" data-step-label="3">Подтверждение</div>
+      </div>
+      <div class="register-progress"><div class="register-progress__fill" id="progress-fill"></div></div>
+
+      <div class="register-card">
+        <form id="register-form" novalidate>
+          <div class="register-step is-visible" data-step="1">
+            <h2>Кто вы?</h2>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="label-with-icon" for="reg-last">Фамилия <span class="req">*</span></label>
+                <input type="text" id="reg-last" name="lastName" required placeholder="Иванов" autocomplete="family-name">
+              </div>
+              <div class="form-group">
+                <label class="label-with-icon" for="reg-first">Имя <span class="req">*</span></label>
+                <input type="text" id="reg-first" name="firstName" required placeholder="Иван" autocomplete="given-name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="label-with-icon" for="reg-day">Дата рождения <span class="req">*</span></label>
+              <div class="form-row-dob">
+                <input type="number" id="reg-day" name="day" min="1" max="31" placeholder="День" required>
+                <input type="number" id="reg-month" name="month" min="1" max="12" placeholder="Месяц" required>
+                <input type="number" id="reg-year" name="year" min="1940" max="2010" placeholder="Год" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="register-step" data-step="2">
+            <h2>Контактные данные</h2>
+            <div class="form-group">
+              <label for="reg-email">Email <span class="req">*</span></label>
+              <input type="email" id="reg-email" name="email" required placeholder="example@mail.ru" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="reg-phone">Телефон <span class="req">*</span></label>
+              <input type="tel" id="reg-phone" name="phone" required placeholder="+7 (999) 000-00-00" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="reg-pass">Пароль <span class="req">*</span></label>
+              <input type="password" id="reg-pass" name="password" required minlength="8" placeholder="Не менее 8 символов" autocomplete="new-password">
+            </div>
+            <div class="form-group">
+              <label for="reg-pass2">Повтор пароля <span class="req">*</span></label>
+              <input type="password" id="reg-pass2" required placeholder="Повторите пароль" autocomplete="new-password">
+            </div>
+            <div class="pw-strength" id="pw-strength-block">
+              <span>Надёжность: <strong id="pw-label">—</strong></span>
+              <div class="pw-strength-bar" id="pw-bar"><span></span><span></span><span></span><span></span></div>
+              <ul class="pw-rules">
+                <li id="rule-len">○ Минимум 8 символов</li>
+                <li id="rule-up">○ Заглавная буква</li>
+                <li id="rule-num">○ Цифра</li>
+                <li id="rule-spec">○ Спецсимвол</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="register-step" data-step="3">
+            <h2>Завершение регистрации</h2>
+            <div class="form-group">
+              <label for="reg-city">Город проживания <span class="req">*</span></label>
+              <input type="text" id="reg-city" name="city" required placeholder="Москва" autocomplete="address-level2">
+            </div>
+            <label class="checkbox-line">
+              <input type="checkbox" id="reg-agree" required>
+              <span>Я согласен на обработку персональных данных в соответствии с Политикой конфиденциальности <span class="req">*</span></span>
+            </label>
+            <label class="checkbox-line">
+              <input type="checkbox" id="reg-news" name="news">
+              <span>Хочу получать новости об акциях и специальных предложениях</span>
+            </label>
+          </div>
+
+          <div class="register-actions">
+            <button type="button" class="btn btn-secondary" id="btn-back" style="display: none;">← Назад</button>
+            <span style="flex: 1;"></span>
+            <button type="button" class="btn btn-primary" id="btn-next">Продолжить →</button>
+            <button type="submit" class="btn btn-primary btn-with-icon" id="btn-submit" style="display: none;">
+              <span class="btn-icon" aria-hidden="true">✓</span>Создать аккаунт
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><h4>Информация</h4><ul><li><a href="account.html">Личный кабинет</a></li><li><a href="delivery.html">Доставка</a></li></ul></div>
+    </div>
+    <p class="footer-copy">© 2026 FitNutrition. Учебный проект.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    (function () {
+      var step = 1;
+      var maxStep = 3;
+      var steps = document.querySelectorAll('.register-step');
+      var labels = document.querySelectorAll('[data-step-label]');
+      var fill = document.getElementById('progress-fill');
+      var btnNext = document.getElementById('btn-next');
+      var btnBack = document.getElementById('btn-back');
+      var btnSubmit = document.getElementById('btn-submit');
+      var form = document.getElementById('register-form');
+
+      function setPwUI() {
+        var p = document.getElementById('reg-pass').value;
+        var segs = document.querySelectorAll('#pw-bar span');
+        var score = 0;
+        if (p.length >= 8) { score++; document.getElementById('rule-len').textContent = '✓ Минимум 8 символов'; } else { document.getElementById('rule-len').textContent = '○ Минимум 8 символов'; }
+        if (/[А-ЯA-Z]/.test(p)) { score++; document.getElementById('rule-up').textContent = '✓ Заглавная буква'; } else { document.getElementById('rule-up').textContent = '○ Заглавная буква'; }
+        if (/\d/.test(p)) { score++; document.getElementById('rule-num').textContent = '✓ Цифра'; } else { document.getElementById('rule-num').textContent = '○ Цифра'; }
+        if (/[^A-Za-zА-Яа-яёЁ0-9]/.test(p)) { score++; document.getElementById('rule-spec').textContent = '✓ Спецсимвол'; } else { document.getElementById('rule-spec').textContent = '○ Спецсимвол'; }
+        var lbl = document.getElementById('pw-label');
+        if (!p) { lbl.textContent = '—'; segs.forEach(function (s) { s.classList.remove('is-on'); }); return; }
+        if (score <= 1) lbl.textContent = 'Слабый';
+        else if (score <= 3) lbl.textContent = 'Средний';
+        else lbl.textContent = 'Сильный';
+        segs.forEach(function (s, i) { s.classList.toggle('is-on', i < score); });
+      }
+
+      document.getElementById('reg-pass').addEventListener('input', setPwUI);
+
+      function updateUI() {
+        steps.forEach(function (el) {
+          el.classList.toggle('is-visible', parseInt(el.getAttribute('data-step'), 10) === step);
+        });
+        labels.forEach(function (el, i) {
+          var n = i + 1;
+          el.classList.toggle('is-active', n === step);
+          el.classList.toggle('is-done', n < step);
+        });
+        fill.style.width = (100 * step / maxStep) + '%';
+        btnBack.style.display = step > 1 ? 'inline-flex' : 'none';
+        btnNext.style.display = step < maxStep ? 'inline-flex' : 'none';
+        btnSubmit.style.display = step === maxStep ? 'inline-flex' : 'none';
+      }
+
+      btnNext.addEventListener('click', function () {
+        if (step === 1) {
+          if (!document.getElementById('reg-last').value.trim() || !document.getElementById('reg-first').value.trim()) { alert('Укажите фамилию и имя'); return; }
+          if (!document.getElementById('reg-day').value || !document.getElementById('reg-month').value || !document.getElementById('reg-year').value) { alert('Укажите дату рождения'); return; }
+        }
+        if (step === 2) {
+          if (!document.getElementById('reg-email').value.trim()) { alert('Укажите email'); return; }
+          if (document.getElementById('reg-pass').value !== document.getElementById('reg-pass2').value) { alert('Пароли не совпадают'); return; }
+          if (document.getElementById('reg-pass').value.length < 8) { alert('Пароль не короче 8 символов'); return; }
+        }
+        if (step < maxStep) { step++; updateUI(); }
+      });
+
+      btnBack.addEventListener('click', function () {
+        if (step > 1) { step--; updateUI(); }
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!document.getElementById('reg-agree').checked) {
+          alert('Нужно согласие на обработку данных');
+          return;
+        }
+        var name = document.getElementById('reg-first').value.trim() + ' ' + document.getElementById('reg-last').value.trim();
+        if (window.FitNutrition) {
+          window.FitNutrition.setUser({
+            name: name,
+            email: document.getElementById('reg-email').value.trim(),
+            city: document.getElementById('reg-city').value.trim()
+          });
+        }
+        window.location.href = 'account.html';
+      });
+
+      updateUI();
+    })();
+  </script>
+</body>
+</html>
